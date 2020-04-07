@@ -186,7 +186,7 @@ Available pretrain items:
 8个步骤开始一个典型的NLP训练任务。
 
 1. 使用`paddlepalm.reader` 为数据集加载和输入特征生成创建一个`reader`，然后调用`reader.load_data`方法加载训练数据。
-2. 使用`paddlepalm.load_data`创建一个模型*主干网络*来提取文本特征(例如，上下文单词嵌入，句子嵌入)。
+2. 使用`paddlepalm.backbone`创建一个模型*主干网络*来提取文本特征(例如，上下文单词嵌入，句子嵌入)。
 3. 通过`reader.register_with`将`reader`注册到主干网络上。在这一步之后，reader能够使用主干网络产生的输入特征。
 4. 使用`paddlepalm.head`。创建一个任务*head*，可以为训练提供任务损失，为模型推理提供预测结果。
 5. 使用`paddlepalm.Trainer`创建一个任务`Trainer`，然后通过`Trainer.build_forward`构建包含主干网络和任务头的前向图(在步骤2和步骤4中创建)。
